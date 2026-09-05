@@ -73,11 +73,11 @@ omi_bse_bseindia_eti_fbe_v1_6_14.fields.fill_match_id = ProtoField.new("Fill Mat
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.fill_px = ProtoField.new("Fill Px", "bse.bseindia.eti.fbe.v1.6.14.fillpx", ftypes.DOUBLE)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.fill_qty = ProtoField.new("Fill Qty", "bse.bseindia.eti.fbe.v1.6.14.fillqty", ftypes.INT32)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.fill_yield = ProtoField.new("Fill Yield", "bse.bseindia.eti.fbe.v1.6.14.fillyield", ftypes.DOUBLE)
-omi_bse_bseindia_eti_fbe_v1_6_14.fields.filler_1 = ProtoField.new("Filler 1", "bse.bseindia.eti.fbe.v1.6.14.filler1", ftypes.UINT64)
-omi_bse_bseindia_eti_fbe_v1_6_14.fields.filler_2 = ProtoField.new("Filler 2", "bse.bseindia.eti.fbe.v1.6.14.filler2", ftypes.UINT32)
-omi_bse_bseindia_eti_fbe_v1_6_14.fields.filler_3 = ProtoField.new("Filler 3", "bse.bseindia.eti.fbe.v1.6.14.filler3", ftypes.UINT32)
-omi_bse_bseindia_eti_fbe_v1_6_14.fields.filler_4 = ProtoField.new("Filler 4", "bse.bseindia.eti.fbe.v1.6.14.filler4", ftypes.UINT16)
-omi_bse_bseindia_eti_fbe_v1_6_14.fields.filler_4_v2 = ProtoField.new("Filler 4 v2", "bse.bseindia.eti.fbe.v1.6.14.filler4v2", ftypes.UINT16)
+omi_bse_bseindia_eti_fbe_v1_6_14.fields.filler1 = ProtoField.new("Filler1", "bse.bseindia.eti.fbe.v1.6.14.filler1", ftypes.BYTES)
+omi_bse_bseindia_eti_fbe_v1_6_14.fields.filler2 = ProtoField.new("Filler2", "bse.bseindia.eti.fbe.v1.6.14.filler2", ftypes.BYTES)
+omi_bse_bseindia_eti_fbe_v1_6_14.fields.filler3 = ProtoField.new("Filler3", "bse.bseindia.eti.fbe.v1.6.14.filler3", ftypes.BYTES)
+omi_bse_bseindia_eti_fbe_v1_6_14.fields.filler4 = ProtoField.new("Filler4", "bse.bseindia.eti.fbe.v1.6.14.filler4", ftypes.BYTES)
+omi_bse_bseindia_eti_fbe_v1_6_14.fields.filler4v2 = ProtoField.new("Filler4v2", "bse.bseindia.eti.fbe.v1.6.14.filler4v2", ftypes.BYTES)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.fills_grp_comp = ProtoField.new("Fills Grp Comp", "bse.bseindia.eti.fbe.v1.6.14.fillsgrpcomp", ftypes.STRING)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.fix_engine_name = ProtoField.new("Fix Engine Name", "bse.bseindia.eti.fbe.v1.6.14.fixenginename", ftypes.STRING)
 omi_bse_bseindia_eti_fbe_v1_6_14.fields.fix_engine_vendor = ProtoField.new("Fix Engine Vendor", "bse.bseindia.eti.fbe.v1.6.14.fixenginevendor", ftypes.STRING)
@@ -2598,142 +2598,117 @@ bse_bseindia_eti_fbe_v1_6_14.fill_yield.dissect = function(buffer, offset, packe
   return offset + length, value
 end
 
--- Filler 1
-bse_bseindia_eti_fbe_v1_6_14.filler_1 = {}
+-- Filler1
+bse_bseindia_eti_fbe_v1_6_14.filler1 = {}
 
--- Size: Filler 1
-bse_bseindia_eti_fbe_v1_6_14.filler_1.size = 8
+-- Size: Filler1
+bse_bseindia_eti_fbe_v1_6_14.filler1.size = 8
 
--- Display: Filler 1
-bse_bseindia_eti_fbe_v1_6_14.filler_1.display = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Filler 1: No Value"
-  end
-
-  return "Filler 1: "..value
+-- Display: Filler1
+bse_bseindia_eti_fbe_v1_6_14.filler1.display = function(value)
+  return "Filler1: "..value
 end
 
--- Dissect: Filler 1
-bse_bseindia_eti_fbe_v1_6_14.filler_1.dissect = function(buffer, offset, packet, parent)
-  local length = bse_bseindia_eti_fbe_v1_6_14.filler_1.size
+-- Dissect: Filler1
+bse_bseindia_eti_fbe_v1_6_14.filler1.dissect = function(buffer, offset, packet, parent)
+  local length = bse_bseindia_eti_fbe_v1_6_14.filler1.size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
-  local display = bse_bseindia_eti_fbe_v1_6_14.filler_1.display(value, buffer, offset, packet, parent)
+  local value = range:bytes():tohex(false, " ")
+  local display = bse_bseindia_eti_fbe_v1_6_14.filler1.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.filler_1, range, value, display)
+  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.filler1, range, value, display)
 
   return offset + length, value
 end
 
--- Filler 2
-bse_bseindia_eti_fbe_v1_6_14.filler_2 = {}
+-- Filler2
+bse_bseindia_eti_fbe_v1_6_14.filler2 = {}
 
--- Size: Filler 2
-bse_bseindia_eti_fbe_v1_6_14.filler_2.size = 4
+-- Size: Filler2
+bse_bseindia_eti_fbe_v1_6_14.filler2.size = 4
 
--- Display: Filler 2
-bse_bseindia_eti_fbe_v1_6_14.filler_2.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Filler 2: No Value"
-  end
-
-  return "Filler 2: "..value
+-- Display: Filler2
+bse_bseindia_eti_fbe_v1_6_14.filler2.display = function(value)
+  return "Filler2: "..value
 end
 
--- Dissect: Filler 2
-bse_bseindia_eti_fbe_v1_6_14.filler_2.dissect = function(buffer, offset, packet, parent)
-  local length = bse_bseindia_eti_fbe_v1_6_14.filler_2.size
+-- Dissect: Filler2
+bse_bseindia_eti_fbe_v1_6_14.filler2.dissect = function(buffer, offset, packet, parent)
+  local length = bse_bseindia_eti_fbe_v1_6_14.filler2.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = bse_bseindia_eti_fbe_v1_6_14.filler_2.display(value, buffer, offset, packet, parent)
+  local value = range:bytes():tohex(false, " ")
+  local display = bse_bseindia_eti_fbe_v1_6_14.filler2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.filler_2, range, value, display)
+  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.filler2, range, value, display)
 
   return offset + length, value
 end
 
--- Filler 3
-bse_bseindia_eti_fbe_v1_6_14.filler_3 = {}
+-- Filler3
+bse_bseindia_eti_fbe_v1_6_14.filler3 = {}
 
--- Size: Filler 3
-bse_bseindia_eti_fbe_v1_6_14.filler_3.size = 4
+-- Size: Filler3
+bse_bseindia_eti_fbe_v1_6_14.filler3.size = 4
 
--- Display: Filler 3
-bse_bseindia_eti_fbe_v1_6_14.filler_3.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFFFFFF then
-    return "Filler 3: No Value"
-  end
-
-  return "Filler 3: "..value
+-- Display: Filler3
+bse_bseindia_eti_fbe_v1_6_14.filler3.display = function(value)
+  return "Filler3: "..value
 end
 
--- Dissect: Filler 3
-bse_bseindia_eti_fbe_v1_6_14.filler_3.dissect = function(buffer, offset, packet, parent)
-  local length = bse_bseindia_eti_fbe_v1_6_14.filler_3.size
+-- Dissect: Filler3
+bse_bseindia_eti_fbe_v1_6_14.filler3.dissect = function(buffer, offset, packet, parent)
+  local length = bse_bseindia_eti_fbe_v1_6_14.filler3.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = bse_bseindia_eti_fbe_v1_6_14.filler_3.display(value, buffer, offset, packet, parent)
+  local value = range:bytes():tohex(false, " ")
+  local display = bse_bseindia_eti_fbe_v1_6_14.filler3.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.filler_3, range, value, display)
+  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.filler3, range, value, display)
 
   return offset + length, value
 end
 
--- Filler 4
-bse_bseindia_eti_fbe_v1_6_14.filler_4 = {}
+-- Filler4
+bse_bseindia_eti_fbe_v1_6_14.filler4 = {}
 
--- Size: Filler 4
-bse_bseindia_eti_fbe_v1_6_14.filler_4.size = 2
+-- Size: Filler4
+bse_bseindia_eti_fbe_v1_6_14.filler4.size = 2
 
--- Display: Filler 4
-bse_bseindia_eti_fbe_v1_6_14.filler_4.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFF then
-    return "Filler 4: No Value"
-  end
-
-  return "Filler 4: "..value
+-- Display: Filler4
+bse_bseindia_eti_fbe_v1_6_14.filler4.display = function(value)
+  return "Filler4: "..value
 end
 
--- Dissect: Filler 4
-bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect = function(buffer, offset, packet, parent)
-  local length = bse_bseindia_eti_fbe_v1_6_14.filler_4.size
+-- Dissect: Filler4
+bse_bseindia_eti_fbe_v1_6_14.filler4.dissect = function(buffer, offset, packet, parent)
+  local length = bse_bseindia_eti_fbe_v1_6_14.filler4.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = bse_bseindia_eti_fbe_v1_6_14.filler_4.display(value, buffer, offset, packet, parent)
+  local value = range:bytes():tohex(false, " ")
+  local display = bse_bseindia_eti_fbe_v1_6_14.filler4.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.filler_4, range, value, display)
+  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.filler4, range, value, display)
 
   return offset + length, value
 end
 
--- Filler 4 v2
-bse_bseindia_eti_fbe_v1_6_14.filler_4_v2 = {}
+-- Filler4v2
+bse_bseindia_eti_fbe_v1_6_14.filler4v2 = {}
 
--- Size: Filler 4 v2
-bse_bseindia_eti_fbe_v1_6_14.filler_4_v2.size = 2
+-- Size: Filler4v2
+bse_bseindia_eti_fbe_v1_6_14.filler4v2.size = 2
 
--- Display: Filler 4 v2
-bse_bseindia_eti_fbe_v1_6_14.filler_4_v2.display = function(value)
-  -- Check if field has value
-  if value == 0xFFFF then
-    return "Filler 4 v2: No Value"
-  end
-
-  return "Filler 4 v2: "..value
+-- Display: Filler4v2
+bse_bseindia_eti_fbe_v1_6_14.filler4v2.display = function(value)
+  return "Filler4v2: "..value
 end
 
--- Dissect: Filler 4 v2
-bse_bseindia_eti_fbe_v1_6_14.filler_4_v2.dissect = function(buffer, offset, packet, parent)
-  local length = bse_bseindia_eti_fbe_v1_6_14.filler_4_v2.size
+-- Dissect: Filler4v2
+bse_bseindia_eti_fbe_v1_6_14.filler4v2.dissect = function(buffer, offset, packet, parent)
+  local length = bse_bseindia_eti_fbe_v1_6_14.filler4v2.size
   local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = bse_bseindia_eti_fbe_v1_6_14.filler_4_v2.display(value, buffer, offset, packet, parent)
+  local value = range:bytes():tohex(false, " ")
+  local display = bse_bseindia_eti_fbe_v1_6_14.filler4v2.display(value, buffer, offset, packet, parent)
 
-  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.filler_4_v2, range, value, display)
+  parent:add(omi_bse_bseindia_eti_fbe_v1_6_14.fields.filler4v2, range, value, display)
 
   return offset + length, value
 end
@@ -9670,8 +9645,8 @@ end
 bse_bseindia_eti_fbe_v1_6_14.user_password_change_response.fields = function(buffer, offset, packet, parent, size_of_user_password_change_response)
   local index = offset
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = bse_bseindia_eti_fbe_v1_6_14.response_header_comp.dissect(buffer, index, packet, parent)
@@ -9723,8 +9698,8 @@ end
 bse_bseindia_eti_fbe_v1_6_14.user_logout_response.fields = function(buffer, offset, packet, parent, size_of_user_logout_response)
   local index = offset
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = bse_bseindia_eti_fbe_v1_6_14.response_header_comp.dissect(buffer, index, packet, parent)
@@ -9776,8 +9751,8 @@ end
 bse_bseindia_eti_fbe_v1_6_14.user_login_response.fields = function(buffer, offset, packet, parent, size_of_user_login_response)
   local index = offset
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = bse_bseindia_eti_fbe_v1_6_14.response_header_comp.dissect(buffer, index, packet, parent)
@@ -9841,8 +9816,8 @@ end
 bse_bseindia_eti_fbe_v1_6_14.unsubscribe_response.fields = function(buffer, offset, packet, parent, size_of_unsubscribe_response)
   local index = offset
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = bse_bseindia_eti_fbe_v1_6_14.response_header_comp.dissect(buffer, index, packet, parent)
@@ -9966,8 +9941,8 @@ end
 bse_bseindia_eti_fbe_v1_6_14.trading_session_status_broadcast.fields = function(buffer, offset, packet, parent, size_of_trading_session_status_broadcast)
   local index = offset
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Rbc Header Me Comp: Struct of 9 fields
   index, rbc_header_me_comp = bse_bseindia_eti_fbe_v1_6_14.rbc_header_me_comp.dissect(buffer, index, packet, parent)
@@ -10102,8 +10077,8 @@ end
 bse_bseindia_eti_fbe_v1_6_14.trade_enhancement_broadcast.fields = function(buffer, offset, packet, parent, size_of_trade_enhancement_broadcast)
   local index = offset
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = bse_bseindia_eti_fbe_v1_6_14.rbc_header_comp.dissect(buffer, index, packet, parent)
@@ -10203,8 +10178,8 @@ end
 bse_bseindia_eti_fbe_v1_6_14.trade_broadcast.fields = function(buffer, offset, packet, parent, size_of_trade_broadcast)
   local index = offset
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = bse_bseindia_eti_fbe_v1_6_14.rbc_header_comp.dissect(buffer, index, packet, parent)
@@ -10248,11 +10223,11 @@ bse_bseindia_eti_fbe_v1_6_14.trade_broadcast.fields = function(buffer, offset, p
   -- Activity Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, activity_time = bse_bseindia_eti_fbe_v1_6_14.activity_time.dissect(buffer, index, packet, parent)
 
-  -- Filler 1: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_1 = bse_bseindia_eti_fbe_v1_6_14.filler_1.dissect(buffer, index, packet, parent)
+  -- Filler1: 8 Byte
+  index, filler1 = bse_bseindia_eti_fbe_v1_6_14.filler1.dissect(buffer, index, packet, parent)
 
-  -- Filler 2: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_2 = bse_bseindia_eti_fbe_v1_6_14.filler_2.dissect(buffer, index, packet, parent)
+  -- Filler2: 4 Byte
+  index, filler2 = bse_bseindia_eti_fbe_v1_6_14.filler2.dissect(buffer, index, packet, parent)
 
   -- Message Tag: 4 Byte Signed Fixed Width Integer Nullable
   index, message_tag = bse_bseindia_eti_fbe_v1_6_14.message_tag.dissect(buffer, index, packet, parent)
@@ -10311,8 +10286,8 @@ bse_bseindia_eti_fbe_v1_6_14.trade_broadcast.fields = function(buffer, offset, p
   -- Tot Num Trade Reports: 4 Byte Signed Fixed Width Integer Nullable
   index, tot_num_trade_reports = bse_bseindia_eti_fbe_v1_6_14.tot_num_trade_reports.dissect(buffer, index, packet, parent)
 
-  -- Filler 4 v2: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4_v2 = bse_bseindia_eti_fbe_v1_6_14.filler_4_v2.dissect(buffer, index, packet, parent)
+  -- Filler4v2: 2 Byte
+  index, filler4v2 = bse_bseindia_eti_fbe_v1_6_14.filler4v2.dissect(buffer, index, packet, parent)
 
   -- Multi Leg Reporting Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, multi_leg_reporting_type = bse_bseindia_eti_fbe_v1_6_14.multi_leg_reporting_type.dissect(buffer, index, packet, parent)
@@ -10488,8 +10463,8 @@ end
 bse_bseindia_eti_fbe_v1_6_14.throttle_update_notification.fields = function(buffer, offset, packet, parent, size_of_throttle_update_notification)
   local index = offset
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Notif Header Comp: Struct of 1 fields
   index, notif_header_comp = bse_bseindia_eti_fbe_v1_6_14.notif_header_comp.dissect(buffer, index, packet, parent)
@@ -10550,8 +10525,8 @@ end
 bse_bseindia_eti_fbe_v1_6_14.tm_trading_session_status_broadcast.fields = function(buffer, offset, packet, parent, size_of_tm_trading_session_status_broadcast)
   local index = offset
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = bse_bseindia_eti_fbe_v1_6_14.rbc_header_comp.dissect(buffer, index, packet, parent)
@@ -10609,8 +10584,8 @@ end
 bse_bseindia_eti_fbe_v1_6_14.subscribe_response.fields = function(buffer, offset, packet, parent, size_of_subscribe_response)
   local index = offset
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = bse_bseindia_eti_fbe_v1_6_14.response_header_comp.dissect(buffer, index, packet, parent)
@@ -10668,8 +10643,8 @@ end
 bse_bseindia_eti_fbe_v1_6_14.session_registration_response.fields = function(buffer, offset, packet, parent, size_of_session_registration_response)
   local index = offset
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = bse_bseindia_eti_fbe_v1_6_14.response_header_comp.dissect(buffer, index, packet, parent)
@@ -10753,8 +10728,8 @@ end
 bse_bseindia_eti_fbe_v1_6_14.session_password_change_response.fields = function(buffer, offset, packet, parent, size_of_session_password_change_response)
   local index = offset
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = bse_bseindia_eti_fbe_v1_6_14.response_header_comp.dissect(buffer, index, packet, parent)
@@ -10862,8 +10837,8 @@ end
 bse_bseindia_eti_fbe_v1_6_14.service_availability_broadcast.fields = function(buffer, offset, packet, parent, size_of_service_availability_broadcast)
   local index = offset
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Nrbc Header Comp: Struct of 5 fields
   index, nrbc_header_comp = bse_bseindia_eti_fbe_v1_6_14.nrbc_header_comp.dissect(buffer, index, packet, parent)
@@ -10939,8 +10914,8 @@ end
 bse_bseindia_eti_fbe_v1_6_14.risk_notification_broadcast.fields = function(buffer, offset, packet, parent, size_of_risk_notification_broadcast)
   local index = offset
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = bse_bseindia_eti_fbe_v1_6_14.rbc_header_comp.dissect(buffer, index, packet, parent)
@@ -11040,8 +11015,8 @@ end
 bse_bseindia_eti_fbe_v1_6_14.risk_collateral_alert_broadcast.fields = function(buffer, offset, packet, parent, size_of_risk_collateral_alert_broadcast)
   local index = offset
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = bse_bseindia_eti_fbe_v1_6_14.rbc_header_comp.dissect(buffer, index, packet, parent)
@@ -11152,8 +11127,8 @@ end
 bse_bseindia_eti_fbe_v1_6_14.risk_collateral_alert_admin_broadcast.fields = function(buffer, offset, packet, parent, size_of_risk_collateral_alert_admin_broadcast)
   local index = offset
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = bse_bseindia_eti_fbe_v1_6_14.rbc_header_comp.dissect(buffer, index, packet, parent)
@@ -11273,8 +11248,8 @@ end
 bse_bseindia_eti_fbe_v1_6_14.retransmit_response.fields = function(buffer, offset, packet, parent, size_of_retransmit_response)
   local index = offset
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = bse_bseindia_eti_fbe_v1_6_14.response_header_comp.dissect(buffer, index, packet, parent)
@@ -11338,8 +11313,8 @@ end
 bse_bseindia_eti_fbe_v1_6_14.retransmit_me_message_response.fields = function(buffer, offset, packet, parent, size_of_retransmit_me_message_response)
   local index = offset
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = bse_bseindia_eti_fbe_v1_6_14.response_header_comp.dissect(buffer, index, packet, parent)
@@ -11475,8 +11450,8 @@ end
 bse_bseindia_eti_fbe_v1_6_14.reject.fields = function(buffer, offset, packet, parent, size_of_reject)
   local index = offset
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Nr Response Header Me Comp: Struct of 9 fields
   index, nr_response_header_me_comp = bse_bseindia_eti_fbe_v1_6_14.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
@@ -11744,8 +11719,8 @@ end
 bse_bseindia_eti_fbe_v1_6_14.quote_execution_report.fields = function(buffer, offset, packet, parent, size_of_quote_execution_report)
   local index = offset
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Rbc Header Me Comp: Struct of 9 fields
   index, rbc_header_me_comp = bse_bseindia_eti_fbe_v1_6_14.rbc_header_me_comp.dissect(buffer, index, packet, parent)
@@ -11822,8 +11797,8 @@ end
 bse_bseindia_eti_fbe_v1_6_14.quote_exec_report_broadcast.fields = function(buffer, offset, packet, parent, size_of_quote_exec_report_broadcast)
   local index = offset
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Rbc Header Me Comp: Struct of 9 fields
   index, rbc_header_me_comp = bse_bseindia_eti_fbe_v1_6_14.rbc_header_me_comp.dissect(buffer, index, packet, parent)
@@ -12116,8 +12091,8 @@ end
 bse_bseindia_eti_fbe_v1_6_14.order_exec_response.fields = function(buffer, offset, packet, parent, size_of_order_exec_response)
   local index = offset
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Response Header Me Comp: Struct of 11 fields
   index, response_header_me_comp = bse_bseindia_eti_fbe_v1_6_14.response_header_me_comp.dissect(buffer, index, packet, parent)
@@ -12149,8 +12124,8 @@ bse_bseindia_eti_fbe_v1_6_14.order_exec_response.fields = function(buffer, offse
   -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, price = bse_bseindia_eti_fbe_v1_6_14.price.dissect(buffer, index, packet, parent)
 
-  -- Filler 2: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_2 = bse_bseindia_eti_fbe_v1_6_14.filler_2.dissect(buffer, index, packet, parent)
+  -- Filler2: 4 Byte
+  index, filler2 = bse_bseindia_eti_fbe_v1_6_14.filler2.dissect(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
   index, market_segment_id = bse_bseindia_eti_fbe_v1_6_14.market_segment_id.dissect(buffer, index, packet, parent)
@@ -12164,8 +12139,8 @@ bse_bseindia_eti_fbe_v1_6_14.order_exec_response.fields = function(buffer, offse
   -- Cxl Qty: 4 Byte Signed Fixed Width Integer Nullable
   index, cxl_qty = bse_bseindia_eti_fbe_v1_6_14.cxl_qty.dissect(buffer, index, packet, parent)
 
-  -- Filler 4 v2: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4_v2 = bse_bseindia_eti_fbe_v1_6_14.filler_4_v2.dissect(buffer, index, packet, parent)
+  -- Filler4v2: 2 Byte
+  index, filler4v2 = bse_bseindia_eti_fbe_v1_6_14.filler4v2.dissect(buffer, index, packet, parent)
 
   -- No Leg Execs: 2 Byte Unsigned Fixed Width Integer Nullable
   index, no_leg_execs = bse_bseindia_eti_fbe_v1_6_14.no_leg_execs.dissect(buffer, index, packet, parent)
@@ -12305,8 +12280,8 @@ end
 bse_bseindia_eti_fbe_v1_6_14.order_exec_report_broadcast.fields = function(buffer, offset, packet, parent, size_of_order_exec_report_broadcast)
   local index = offset
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Rbc Header Me Comp: Struct of 9 fields
   index, rbc_header_me_comp = bse_bseindia_eti_fbe_v1_6_14.rbc_header_me_comp.dissect(buffer, index, packet, parent)
@@ -12353,11 +12328,11 @@ bse_bseindia_eti_fbe_v1_6_14.order_exec_report_broadcast.fields = function(buffe
   -- Activity Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, activity_time = bse_bseindia_eti_fbe_v1_6_14.activity_time.dissect(buffer, index, packet, parent)
 
-  -- Filler 1: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_1 = bse_bseindia_eti_fbe_v1_6_14.filler_1.dissect(buffer, index, packet, parent)
+  -- Filler1: 8 Byte
+  index, filler1 = bse_bseindia_eti_fbe_v1_6_14.filler1.dissect(buffer, index, packet, parent)
 
-  -- Filler 2: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_2 = bse_bseindia_eti_fbe_v1_6_14.filler_2.dissect(buffer, index, packet, parent)
+  -- Filler2: 4 Byte
+  index, filler2 = bse_bseindia_eti_fbe_v1_6_14.filler2.dissect(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
   index, market_segment_id = bse_bseindia_eti_fbe_v1_6_14.market_segment_id.dissect(buffer, index, packet, parent)
@@ -12395,8 +12370,8 @@ bse_bseindia_eti_fbe_v1_6_14.order_exec_report_broadcast.fields = function(buffe
   -- Party Id Entering Trader: 4 Byte Unsigned Fixed Width Integer Nullable
   index, party_id_entering_trader = bse_bseindia_eti_fbe_v1_6_14.party_id_entering_trader.dissect(buffer, index, packet, parent)
 
-  -- Filler 4 v2: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4_v2 = bse_bseindia_eti_fbe_v1_6_14.filler_4_v2.dissect(buffer, index, packet, parent)
+  -- Filler4v2: 2 Byte
+  index, filler4v2 = bse_bseindia_eti_fbe_v1_6_14.filler4v2.dissect(buffer, index, packet, parent)
 
   -- No Leg Execs: 2 Byte Unsigned Fixed Width Integer Nullable
   index, no_leg_execs = bse_bseindia_eti_fbe_v1_6_14.no_leg_execs.dissect(buffer, index, packet, parent)
@@ -12556,8 +12531,8 @@ end
 bse_bseindia_eti_fbe_v1_6_14.order_exec_notification.fields = function(buffer, offset, packet, parent, size_of_order_exec_notification)
   local index = offset
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Rbc Header Me Comp: Struct of 9 fields
   index, rbc_header_me_comp = bse_bseindia_eti_fbe_v1_6_14.rbc_header_me_comp.dissect(buffer, index, packet, parent)
@@ -12583,11 +12558,11 @@ bse_bseindia_eti_fbe_v1_6_14.order_exec_notification.fields = function(buffer, o
   -- Activity Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, activity_time = bse_bseindia_eti_fbe_v1_6_14.activity_time.dissect(buffer, index, packet, parent)
 
-  -- Filler 1: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_1 = bse_bseindia_eti_fbe_v1_6_14.filler_1.dissect(buffer, index, packet, parent)
+  -- Filler1: 8 Byte
+  index, filler1 = bse_bseindia_eti_fbe_v1_6_14.filler1.dissect(buffer, index, packet, parent)
 
-  -- Filler 2: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_2 = bse_bseindia_eti_fbe_v1_6_14.filler_2.dissect(buffer, index, packet, parent)
+  -- Filler2: 4 Byte
+  index, filler2 = bse_bseindia_eti_fbe_v1_6_14.filler2.dissect(buffer, index, packet, parent)
 
   -- Message Tag: 4 Byte Signed Fixed Width Integer Nullable
   index, message_tag = bse_bseindia_eti_fbe_v1_6_14.message_tag.dissect(buffer, index, packet, parent)
@@ -12607,8 +12582,8 @@ bse_bseindia_eti_fbe_v1_6_14.order_exec_notification.fields = function(buffer, o
   -- No Leg Execs: 2 Byte Unsigned Fixed Width Integer Nullable
   index, no_leg_execs = bse_bseindia_eti_fbe_v1_6_14.no_leg_execs.dissect(buffer, index, packet, parent)
 
-  -- Filler 4 v2: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4_v2 = bse_bseindia_eti_fbe_v1_6_14.filler_4_v2.dissect(buffer, index, packet, parent)
+  -- Filler4v2: 2 Byte
+  index, filler4v2 = bse_bseindia_eti_fbe_v1_6_14.filler4v2.dissect(buffer, index, packet, parent)
 
   -- Exec Restatement Reason: 2 Byte Unsigned Fixed Width Integer Enum with 52 values
   index, exec_restatement_reason = bse_bseindia_eti_fbe_v1_6_14.exec_restatement_reason.dissect(buffer, index, packet, parent)
@@ -12712,8 +12687,8 @@ end
 bse_bseindia_eti_fbe_v1_6_14.news_broadcast.fields = function(buffer, offset, packet, parent, size_of_news_broadcast)
   local index = offset
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = bse_bseindia_eti_fbe_v1_6_14.rbc_header_comp.dissect(buffer, index, packet, parent)
@@ -12797,8 +12772,8 @@ end
 bse_bseindia_eti_fbe_v1_6_14.new_order_response.fields = function(buffer, offset, packet, parent, size_of_new_order_response)
   local index = offset
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Response Header Me Comp: Struct of 11 fields
   index, response_header_me_comp = bse_bseindia_eti_fbe_v1_6_14.response_header_me_comp.dissect(buffer, index, packet, parent)
@@ -12833,14 +12808,14 @@ bse_bseindia_eti_fbe_v1_6_14.new_order_response.fields = function(buffer, offset
   -- Activity Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, activity_time = bse_bseindia_eti_fbe_v1_6_14.activity_time.dissect(buffer, index, packet, parent)
 
-  -- Filler 1: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_1 = bse_bseindia_eti_fbe_v1_6_14.filler_1.dissect(buffer, index, packet, parent)
+  -- Filler1: 8 Byte
+  index, filler1 = bse_bseindia_eti_fbe_v1_6_14.filler1.dissect(buffer, index, packet, parent)
 
-  -- Filler 2: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_2 = bse_bseindia_eti_fbe_v1_6_14.filler_2.dissect(buffer, index, packet, parent)
+  -- Filler2: 4 Byte
+  index, filler2 = bse_bseindia_eti_fbe_v1_6_14.filler2.dissect(buffer, index, packet, parent)
 
-  -- Filler 4 v2: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4_v2 = bse_bseindia_eti_fbe_v1_6_14.filler_4_v2.dissect(buffer, index, packet, parent)
+  -- Filler4v2: 2 Byte
+  index, filler4v2 = bse_bseindia_eti_fbe_v1_6_14.filler4v2.dissect(buffer, index, packet, parent)
 
   -- Ord Status: 1 Byte Ascii String Enum with 6 values
   index, ord_status = bse_bseindia_eti_fbe_v1_6_14.ord_status.dissect(buffer, index, packet, parent)
@@ -12907,8 +12882,8 @@ end
 bse_bseindia_eti_fbe_v1_6_14.new_order_nr_response.fields = function(buffer, offset, packet, parent, size_of_new_order_nr_response)
   local index = offset
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Nr Response Header Me Comp: Struct of 9 fields
   index, nr_response_header_me_comp = bse_bseindia_eti_fbe_v1_6_14.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
@@ -12937,14 +12912,14 @@ bse_bseindia_eti_fbe_v1_6_14.new_order_nr_response.fields = function(buffer, off
   -- Activity Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, activity_time = bse_bseindia_eti_fbe_v1_6_14.activity_time.dissect(buffer, index, packet, parent)
 
-  -- Filler 1: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_1 = bse_bseindia_eti_fbe_v1_6_14.filler_1.dissect(buffer, index, packet, parent)
+  -- Filler1: 8 Byte
+  index, filler1 = bse_bseindia_eti_fbe_v1_6_14.filler1.dissect(buffer, index, packet, parent)
 
-  -- Filler 2: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_2 = bse_bseindia_eti_fbe_v1_6_14.filler_2.dissect(buffer, index, packet, parent)
+  -- Filler2: 4 Byte
+  index, filler2 = bse_bseindia_eti_fbe_v1_6_14.filler2.dissect(buffer, index, packet, parent)
 
-  -- Filler 4 v2: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4_v2 = bse_bseindia_eti_fbe_v1_6_14.filler_4_v2.dissect(buffer, index, packet, parent)
+  -- Filler4v2: 2 Byte
+  index, filler4v2 = bse_bseindia_eti_fbe_v1_6_14.filler4v2.dissect(buffer, index, packet, parent)
 
   -- Ord Status: 1 Byte Ascii String Enum with 6 values
   index, ord_status = bse_bseindia_eti_fbe_v1_6_14.ord_status.dissect(buffer, index, packet, parent)
@@ -13011,8 +12986,8 @@ end
 bse_bseindia_eti_fbe_v1_6_14.multi_leg_order_reject.fields = function(buffer, offset, packet, parent, size_of_multi_leg_order_reject)
   local index = offset
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Nr Response Header Me Comp: Struct of 9 fields
   index, nr_response_header_me_comp = bse_bseindia_eti_fbe_v1_6_14.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
@@ -13236,8 +13211,8 @@ end
 bse_bseindia_eti_fbe_v1_6_14.multi_leg_exec_response.fields = function(buffer, offset, packet, parent, size_of_multi_leg_exec_response)
   local index = offset
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Response Header Me Comp: Struct of 11 fields
   index, response_header_me_comp = bse_bseindia_eti_fbe_v1_6_14.response_header_me_comp.dissect(buffer, index, packet, parent)
@@ -13423,8 +13398,8 @@ end
 bse_bseindia_eti_fbe_v1_6_14.multi_leg_exec_report_broadcast.fields = function(buffer, offset, packet, parent, size_of_multi_leg_exec_report_broadcast)
   local index = offset
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Rbc Header Me Comp: Struct of 9 fields
   index, rbc_header_me_comp = bse_bseindia_eti_fbe_v1_6_14.rbc_header_me_comp.dissect(buffer, index, packet, parent)
@@ -13524,8 +13499,8 @@ end
 bse_bseindia_eti_fbe_v1_6_14.modify_order_response.fields = function(buffer, offset, packet, parent, size_of_modify_order_response)
   local index = offset
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Response Header Me Comp: Struct of 11 fields
   index, response_header_me_comp = bse_bseindia_eti_fbe_v1_6_14.response_header_me_comp.dissect(buffer, index, packet, parent)
@@ -13560,11 +13535,11 @@ bse_bseindia_eti_fbe_v1_6_14.modify_order_response.fields = function(buffer, off
   -- Activity Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, activity_time = bse_bseindia_eti_fbe_v1_6_14.activity_time.dissect(buffer, index, packet, parent)
 
-  -- Filler 1: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_1 = bse_bseindia_eti_fbe_v1_6_14.filler_1.dissect(buffer, index, packet, parent)
+  -- Filler1: 8 Byte
+  index, filler1 = bse_bseindia_eti_fbe_v1_6_14.filler1.dissect(buffer, index, packet, parent)
 
-  -- Filler 2: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_2 = bse_bseindia_eti_fbe_v1_6_14.filler_2.dissect(buffer, index, packet, parent)
+  -- Filler2: 4 Byte
+  index, filler2 = bse_bseindia_eti_fbe_v1_6_14.filler2.dissect(buffer, index, packet, parent)
 
   -- Leaves Qty: 4 Byte Signed Fixed Width Integer Nullable
   index, leaves_qty = bse_bseindia_eti_fbe_v1_6_14.leaves_qty.dissect(buffer, index, packet, parent)
@@ -13575,8 +13550,8 @@ bse_bseindia_eti_fbe_v1_6_14.modify_order_response.fields = function(buffer, off
   -- Cxl Qty: 4 Byte Signed Fixed Width Integer Nullable
   index, cxl_qty = bse_bseindia_eti_fbe_v1_6_14.cxl_qty.dissect(buffer, index, packet, parent)
 
-  -- Filler 4 v2: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4_v2 = bse_bseindia_eti_fbe_v1_6_14.filler_4_v2.dissect(buffer, index, packet, parent)
+  -- Filler4v2: 2 Byte
+  index, filler4v2 = bse_bseindia_eti_fbe_v1_6_14.filler4v2.dissect(buffer, index, packet, parent)
 
   -- Ord Status: 1 Byte Ascii String Enum with 6 values
   index, ord_status = bse_bseindia_eti_fbe_v1_6_14.ord_status.dissect(buffer, index, packet, parent)
@@ -13640,8 +13615,8 @@ end
 bse_bseindia_eti_fbe_v1_6_14.modify_order_nr_response.fields = function(buffer, offset, packet, parent, size_of_modify_order_nr_response)
   local index = offset
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Nr Response Header Me Comp: Struct of 9 fields
   index, nr_response_header_me_comp = bse_bseindia_eti_fbe_v1_6_14.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
@@ -13673,11 +13648,11 @@ bse_bseindia_eti_fbe_v1_6_14.modify_order_nr_response.fields = function(buffer, 
   -- Activity Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, activity_time = bse_bseindia_eti_fbe_v1_6_14.activity_time.dissect(buffer, index, packet, parent)
 
-  -- Filler 1: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_1 = bse_bseindia_eti_fbe_v1_6_14.filler_1.dissect(buffer, index, packet, parent)
+  -- Filler1: 8 Byte
+  index, filler1 = bse_bseindia_eti_fbe_v1_6_14.filler1.dissect(buffer, index, packet, parent)
 
-  -- Filler 2: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_2 = bse_bseindia_eti_fbe_v1_6_14.filler_2.dissect(buffer, index, packet, parent)
+  -- Filler2: 4 Byte
+  index, filler2 = bse_bseindia_eti_fbe_v1_6_14.filler2.dissect(buffer, index, packet, parent)
 
   -- Leaves Qty: 4 Byte Signed Fixed Width Integer Nullable
   index, leaves_qty = bse_bseindia_eti_fbe_v1_6_14.leaves_qty.dissect(buffer, index, packet, parent)
@@ -13688,8 +13663,8 @@ bse_bseindia_eti_fbe_v1_6_14.modify_order_nr_response.fields = function(buffer, 
   -- Cxl Qty: 4 Byte Signed Fixed Width Integer Nullable
   index, cxl_qty = bse_bseindia_eti_fbe_v1_6_14.cxl_qty.dissect(buffer, index, packet, parent)
 
-  -- Filler 4 v2: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4_v2 = bse_bseindia_eti_fbe_v1_6_14.filler_4_v2.dissect(buffer, index, packet, parent)
+  -- Filler4v2: 2 Byte
+  index, filler4v2 = bse_bseindia_eti_fbe_v1_6_14.filler4v2.dissect(buffer, index, packet, parent)
 
   -- Ord Status: 1 Byte Ascii String Enum with 6 values
   index, ord_status = bse_bseindia_eti_fbe_v1_6_14.ord_status.dissect(buffer, index, packet, parent)
@@ -13819,8 +13794,8 @@ end
 bse_bseindia_eti_fbe_v1_6_14.mass_quote_response.fields = function(buffer, offset, packet, parent, size_of_mass_quote_response)
   local index = offset
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Nr Response Header Me Comp: Struct of 9 fields
   index, nr_response_header_me_comp = bse_bseindia_eti_fbe_v1_6_14.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
@@ -13892,8 +13867,8 @@ end
 bse_bseindia_eti_fbe_v1_6_14.logout_response.fields = function(buffer, offset, packet, parent, size_of_logout_response)
   local index = offset
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = bse_bseindia_eti_fbe_v1_6_14.response_header_comp.dissect(buffer, index, packet, parent)
@@ -13945,8 +13920,8 @@ end
 bse_bseindia_eti_fbe_v1_6_14.logon_response.fields = function(buffer, offset, packet, parent, size_of_logon_response)
   local index = offset
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = bse_bseindia_eti_fbe_v1_6_14.response_header_comp.dissect(buffer, index, packet, parent)
@@ -14095,8 +14070,8 @@ end
 bse_bseindia_eti_fbe_v1_6_14.inquire_session_list_response.fields = function(buffer, offset, packet, parent, size_of_inquire_session_list_response)
   local index = offset
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = bse_bseindia_eti_fbe_v1_6_14.response_header_comp.dissect(buffer, index, packet, parent)
@@ -14159,8 +14134,8 @@ end
 bse_bseindia_eti_fbe_v1_6_14.heartbeat_notification.fields = function(buffer, offset, packet, parent, size_of_heartbeat_notification)
   local index = offset
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Notif Header Comp: Struct of 1 fields
   index, notif_header_comp = bse_bseindia_eti_fbe_v1_6_14.notif_header_comp.dissect(buffer, index, packet, parent)
@@ -14212,8 +14187,8 @@ end
 bse_bseindia_eti_fbe_v1_6_14.gw_order_acknowledgement.fields = function(buffer, offset, packet, parent, size_of_gw_order_acknowledgement)
   local index = offset
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = bse_bseindia_eti_fbe_v1_6_14.response_header_comp.dissect(buffer, index, packet, parent)
@@ -14277,8 +14252,8 @@ end
 bse_bseindia_eti_fbe_v1_6_14.gateway_response.fields = function(buffer, offset, packet, parent, size_of_gateway_response)
   local index = offset
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = bse_bseindia_eti_fbe_v1_6_14.response_header_comp.dissect(buffer, index, packet, parent)
@@ -14357,8 +14332,8 @@ end
 bse_bseindia_eti_fbe_v1_6_14.forced_logout_notification.fields = function(buffer, offset, packet, parent, size_of_forced_logout_notification)
   local index = offset
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Notif Header Comp: Struct of 1 fields
   index, notif_header_comp = bse_bseindia_eti_fbe_v1_6_14.notif_header_comp.dissect(buffer, index, packet, parent)
@@ -14436,8 +14411,8 @@ end
 bse_bseindia_eti_fbe_v1_6_14.delete_order_response.fields = function(buffer, offset, packet, parent, size_of_delete_order_response)
   local index = offset
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Response Header Me Comp: Struct of 11 fields
   index, response_header_me_comp = bse_bseindia_eti_fbe_v1_6_14.response_header_me_comp.dissect(buffer, index, packet, parent)
@@ -14525,8 +14500,8 @@ end
 bse_bseindia_eti_fbe_v1_6_14.delete_order_nr_response.fields = function(buffer, offset, packet, parent, size_of_delete_order_nr_response)
   local index = offset
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Nr Response Header Me Comp: Struct of 9 fields
   index, nr_response_header_me_comp = bse_bseindia_eti_fbe_v1_6_14.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
@@ -14614,8 +14589,8 @@ end
 bse_bseindia_eti_fbe_v1_6_14.delete_order_broadcast.fields = function(buffer, offset, packet, parent, size_of_delete_order_broadcast)
   local index = offset
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Rbc Header Me Comp: Struct of 9 fields
   index, rbc_header_me_comp = bse_bseindia_eti_fbe_v1_6_14.rbc_header_me_comp.dissect(buffer, index, packet, parent)
@@ -14764,8 +14739,8 @@ end
 bse_bseindia_eti_fbe_v1_6_14.delete_all_quote_response.fields = function(buffer, offset, packet, parent, size_of_delete_all_quote_response)
   local index = offset
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Nr Response Header Me Comp: Struct of 9 fields
   index, nr_response_header_me_comp = bse_bseindia_eti_fbe_v1_6_14.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
@@ -14831,8 +14806,8 @@ end
 bse_bseindia_eti_fbe_v1_6_14.delete_all_quote_broadcast.fields = function(buffer, offset, packet, parent, size_of_delete_all_quote_broadcast)
   local index = offset
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Rbc Header Me Comp: Struct of 9 fields
   index, rbc_header_me_comp = bse_bseindia_eti_fbe_v1_6_14.rbc_header_me_comp.dissect(buffer, index, packet, parent)
@@ -14858,14 +14833,14 @@ bse_bseindia_eti_fbe_v1_6_14.delete_all_quote_broadcast.fields = function(buffer
   -- Algo Id: 16 Byte Ascii String Nullable
   index, algo_id = bse_bseindia_eti_fbe_v1_6_14.algo_id.dissect(buffer, index, packet, parent)
 
-  -- Filler 1: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_1 = bse_bseindia_eti_fbe_v1_6_14.filler_1.dissect(buffer, index, packet, parent)
+  -- Filler1: 8 Byte
+  index, filler1 = bse_bseindia_eti_fbe_v1_6_14.filler1.dissect(buffer, index, packet, parent)
 
-  -- Filler 2: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_2 = bse_bseindia_eti_fbe_v1_6_14.filler_2.dissect(buffer, index, packet, parent)
+  -- Filler2: 4 Byte
+  index, filler2 = bse_bseindia_eti_fbe_v1_6_14.filler2.dissect(buffer, index, packet, parent)
 
-  -- Filler 3: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_3 = bse_bseindia_eti_fbe_v1_6_14.filler_3.dissect(buffer, index, packet, parent)
+  -- Filler3: 4 Byte
+  index, filler3 = bse_bseindia_eti_fbe_v1_6_14.filler3.dissect(buffer, index, packet, parent)
 
   -- No Not Affected Securities: 2 Byte Unsigned Fixed Width Integer Nullable
   index, no_not_affected_securities = bse_bseindia_eti_fbe_v1_6_14.no_not_affected_securities.dissect(buffer, index, packet, parent)
@@ -14984,8 +14959,8 @@ end
 bse_bseindia_eti_fbe_v1_6_14.delete_all_order_response.fields = function(buffer, offset, packet, parent, size_of_delete_all_order_response)
   local index = offset
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Response Header Me Comp: Struct of 11 fields
   index, response_header_me_comp = bse_bseindia_eti_fbe_v1_6_14.response_header_me_comp.dissect(buffer, index, packet, parent)
@@ -15051,8 +15026,8 @@ end
 bse_bseindia_eti_fbe_v1_6_14.delete_all_order_quote_event_broadcast.fields = function(buffer, offset, packet, parent, size_of_delete_all_order_quote_event_broadcast)
   local index = offset
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Rbc Header Me Comp: Struct of 9 fields
   index, rbc_header_me_comp = bse_bseindia_eti_fbe_v1_6_14.rbc_header_me_comp.dissect(buffer, index, packet, parent)
@@ -15122,8 +15097,8 @@ end
 bse_bseindia_eti_fbe_v1_6_14.delete_all_order_nr_response.fields = function(buffer, offset, packet, parent, size_of_delete_all_order_nr_response)
   local index = offset
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Nr Response Header Me Comp: Struct of 9 fields
   index, nr_response_header_me_comp = bse_bseindia_eti_fbe_v1_6_14.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
@@ -15178,8 +15153,8 @@ end
 bse_bseindia_eti_fbe_v1_6_14.delete_all_order_broadcast.fields = function(buffer, offset, packet, parent, size_of_delete_all_order_broadcast)
   local index = offset
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Rbc Header Me Comp: Struct of 9 fields
   index, rbc_header_me_comp = bse_bseindia_eti_fbe_v1_6_14.rbc_header_me_comp.dissect(buffer, index, packet, parent)
@@ -15205,14 +15180,14 @@ bse_bseindia_eti_fbe_v1_6_14.delete_all_order_broadcast.fields = function(buffer
   -- Algo Id: 16 Byte Ascii String Nullable
   index, algo_id = bse_bseindia_eti_fbe_v1_6_14.algo_id.dissect(buffer, index, packet, parent)
 
-  -- Filler 1: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_1 = bse_bseindia_eti_fbe_v1_6_14.filler_1.dissect(buffer, index, packet, parent)
+  -- Filler1: 8 Byte
+  index, filler1 = bse_bseindia_eti_fbe_v1_6_14.filler1.dissect(buffer, index, packet, parent)
 
-  -- Filler 2: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_2 = bse_bseindia_eti_fbe_v1_6_14.filler_2.dissect(buffer, index, packet, parent)
+  -- Filler2: 4 Byte
+  index, filler2 = bse_bseindia_eti_fbe_v1_6_14.filler2.dissect(buffer, index, packet, parent)
 
-  -- Filler 3: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_3 = bse_bseindia_eti_fbe_v1_6_14.filler_3.dissect(buffer, index, packet, parent)
+  -- Filler3: 4 Byte
+  index, filler3 = bse_bseindia_eti_fbe_v1_6_14.filler3.dissect(buffer, index, packet, parent)
 
   -- No Not Affected Orders: 2 Byte Unsigned Fixed Width Integer Nullable
   index, no_not_affected_orders = bse_bseindia_eti_fbe_v1_6_14.no_not_affected_orders.dissect(buffer, index, packet, parent)
@@ -15281,8 +15256,8 @@ end
 bse_bseindia_eti_fbe_v1_6_14.debt_inquiry_response.fields = function(buffer, offset, packet, parent, size_of_debt_inquiry_response)
   local index = offset
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Nr Response Header Me Comp: Struct of 9 fields
   index, nr_response_header_me_comp = bse_bseindia_eti_fbe_v1_6_14.nr_response_header_me_comp.dissect(buffer, index, packet, parent)
@@ -15358,8 +15333,8 @@ end
 bse_bseindia_eti_fbe_v1_6_14.broadcast_error_notification.fields = function(buffer, offset, packet, parent, size_of_broadcast_error_notification)
   local index = offset
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Notif Header Comp: Struct of 1 fields
   index, notif_header_comp = bse_bseindia_eti_fbe_v1_6_14.notif_header_comp.dissect(buffer, index, packet, parent)
@@ -16188,8 +16163,8 @@ bse_bseindia_eti_fbe_v1_6_14.session_registration_request.fields = function(buff
   -- Pad4: 4 Byte
   index, pad4 = bse_bseindia_eti_fbe_v1_6_14.pad4.dissect(buffer, index, packet, parent)
 
-  -- Filler 1: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_1 = bse_bseindia_eti_fbe_v1_6_14.filler_1.dissect(buffer, index, packet, parent)
+  -- Filler1: 8 Byte
+  index, filler1 = bse_bseindia_eti_fbe_v1_6_14.filler1.dissect(buffer, index, packet, parent)
 
   return index
 end
@@ -16481,11 +16456,11 @@ bse_bseindia_eti_fbe_v1_6_14.new_order_single_short_request.fields = function(bu
   -- Simple Security Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, simple_security_id = bse_bseindia_eti_fbe_v1_6_14.simple_security_id.dissect(buffer, index, packet, parent)
 
-  -- Filler 2: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_2 = bse_bseindia_eti_fbe_v1_6_14.filler_2.dissect(buffer, index, packet, parent)
+  -- Filler2: 4 Byte
+  index, filler2 = bse_bseindia_eti_fbe_v1_6_14.filler2.dissect(buffer, index, packet, parent)
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Account Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, account_type = bse_bseindia_eti_fbe_v1_6_14.account_type.dissect(buffer, index, packet, parent)
@@ -16585,11 +16560,11 @@ bse_bseindia_eti_fbe_v1_6_14.new_order_single_request.fields = function(buffer, 
   -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, cl_ord_id = bse_bseindia_eti_fbe_v1_6_14.cl_ord_id.dissect(buffer, index, packet, parent)
 
-  -- Filler 1: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_1 = bse_bseindia_eti_fbe_v1_6_14.filler_1.dissect(buffer, index, packet, parent)
+  -- Filler1: 8 Byte
+  index, filler1 = bse_bseindia_eti_fbe_v1_6_14.filler1.dissect(buffer, index, packet, parent)
 
-  -- Filler 2: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_2 = bse_bseindia_eti_fbe_v1_6_14.filler_2.dissect(buffer, index, packet, parent)
+  -- Filler2: 4 Byte
+  index, filler2 = bse_bseindia_eti_fbe_v1_6_14.filler2.dissect(buffer, index, packet, parent)
 
   -- Message Tag: 4 Byte Signed Fixed Width Integer Nullable
   index, message_tag = bse_bseindia_eti_fbe_v1_6_14.message_tag.dissect(buffer, index, packet, parent)
@@ -16612,8 +16587,8 @@ bse_bseindia_eti_fbe_v1_6_14.new_order_single_request.fields = function(buffer, 
   -- Regulatory Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, regulatory_id = bse_bseindia_eti_fbe_v1_6_14.regulatory_id.dissect(buffer, index, packet, parent)
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Party Id Take Up Trading Firm: 5 Byte Ascii String Nullable
   index, party_id_take_up_trading_firm = bse_bseindia_eti_fbe_v1_6_14.party_id_take_up_trading_firm.dissect(buffer, index, packet, parent)
@@ -16755,11 +16730,11 @@ bse_bseindia_eti_fbe_v1_6_14.new_order_complex_request.fields = function(buffer,
   -- Price: 8 Byte Unsigned Fixed Width Integer Nullable
   index, price = bse_bseindia_eti_fbe_v1_6_14.price.dissect(buffer, index, packet, parent)
 
-  -- Filler 1: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_1 = bse_bseindia_eti_fbe_v1_6_14.filler_1.dissect(buffer, index, packet, parent)
+  -- Filler1: 8 Byte
+  index, filler1 = bse_bseindia_eti_fbe_v1_6_14.filler1.dissect(buffer, index, packet, parent)
 
-  -- Filler 2: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_2 = bse_bseindia_eti_fbe_v1_6_14.filler_2.dissect(buffer, index, packet, parent)
+  -- Filler2: 4 Byte
+  index, filler2 = bse_bseindia_eti_fbe_v1_6_14.filler2.dissect(buffer, index, packet, parent)
 
   -- Message Tag: 4 Byte Signed Fixed Width Integer Nullable
   index, message_tag = bse_bseindia_eti_fbe_v1_6_14.message_tag.dissect(buffer, index, packet, parent)
@@ -16779,8 +16754,8 @@ bse_bseindia_eti_fbe_v1_6_14.new_order_complex_request.fields = function(buffer,
   -- Regulatory Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, regulatory_id = bse_bseindia_eti_fbe_v1_6_14.regulatory_id.dissect(buffer, index, packet, parent)
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Party Id Take Up Trading Firm: 5 Byte Ascii String Nullable
   index, party_id_take_up_trading_firm = bse_bseindia_eti_fbe_v1_6_14.party_id_take_up_trading_firm.dissect(buffer, index, packet, parent)
@@ -17109,11 +17084,11 @@ bse_bseindia_eti_fbe_v1_6_14.modify_order_single_short_request.fields = function
   -- Simple Security Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, simple_security_id = bse_bseindia_eti_fbe_v1_6_14.simple_security_id.dissect(buffer, index, packet, parent)
 
-  -- Filler 2: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_2 = bse_bseindia_eti_fbe_v1_6_14.filler_2.dissect(buffer, index, packet, parent)
+  -- Filler2: 4 Byte
+  index, filler2 = bse_bseindia_eti_fbe_v1_6_14.filler2.dissect(buffer, index, packet, parent)
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Account Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, account_type = bse_bseindia_eti_fbe_v1_6_14.account_type.dissect(buffer, index, packet, parent)
@@ -17222,11 +17197,11 @@ bse_bseindia_eti_fbe_v1_6_14.modify_order_single_request.fields = function(buffe
   -- Activity Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, activity_time = bse_bseindia_eti_fbe_v1_6_14.activity_time.dissect(buffer, index, packet, parent)
 
-  -- Filler 1: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_1 = bse_bseindia_eti_fbe_v1_6_14.filler_1.dissect(buffer, index, packet, parent)
+  -- Filler1: 8 Byte
+  index, filler1 = bse_bseindia_eti_fbe_v1_6_14.filler1.dissect(buffer, index, packet, parent)
 
-  -- Filler 2: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_2 = bse_bseindia_eti_fbe_v1_6_14.filler_2.dissect(buffer, index, packet, parent)
+  -- Filler2: 4 Byte
+  index, filler2 = bse_bseindia_eti_fbe_v1_6_14.filler2.dissect(buffer, index, packet, parent)
 
   -- Message Tag: 4 Byte Signed Fixed Width Integer Nullable
   index, message_tag = bse_bseindia_eti_fbe_v1_6_14.message_tag.dissect(buffer, index, packet, parent)
@@ -17252,8 +17227,8 @@ bse_bseindia_eti_fbe_v1_6_14.modify_order_single_request.fields = function(buffe
   -- Regulatory Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, regulatory_id = bse_bseindia_eti_fbe_v1_6_14.regulatory_id.dissect(buffer, index, packet, parent)
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Party Id Take Up Trading Firm: 5 Byte Ascii String Nullable
   index, party_id_take_up_trading_firm = bse_bseindia_eti_fbe_v1_6_14.party_id_take_up_trading_firm.dissect(buffer, index, packet, parent)
@@ -17407,11 +17382,11 @@ bse_bseindia_eti_fbe_v1_6_14.modify_order_complex_request.fields = function(buff
   -- Activity Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, activity_time = bse_bseindia_eti_fbe_v1_6_14.activity_time.dissect(buffer, index, packet, parent)
 
-  -- Filler 1: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_1 = bse_bseindia_eti_fbe_v1_6_14.filler_1.dissect(buffer, index, packet, parent)
+  -- Filler1: 8 Byte
+  index, filler1 = bse_bseindia_eti_fbe_v1_6_14.filler1.dissect(buffer, index, packet, parent)
 
-  -- Filler 2: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_2 = bse_bseindia_eti_fbe_v1_6_14.filler_2.dissect(buffer, index, packet, parent)
+  -- Filler2: 4 Byte
+  index, filler2 = bse_bseindia_eti_fbe_v1_6_14.filler2.dissect(buffer, index, packet, parent)
 
   -- Market Segment Id: 4 Byte Signed Fixed Width Integer Nullable
   index, market_segment_id = bse_bseindia_eti_fbe_v1_6_14.market_segment_id.dissect(buffer, index, packet, parent)
@@ -17434,8 +17409,8 @@ bse_bseindia_eti_fbe_v1_6_14.modify_order_complex_request.fields = function(buff
   -- Regulatory Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, regulatory_id = bse_bseindia_eti_fbe_v1_6_14.regulatory_id.dissect(buffer, index, packet, parent)
 
-  -- Filler 4: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_4 = bse_bseindia_eti_fbe_v1_6_14.filler_4.dissect(buffer, index, packet, parent)
+  -- Filler4: 2 Byte
+  index, filler4 = bse_bseindia_eti_fbe_v1_6_14.filler4.dissect(buffer, index, packet, parent)
 
   -- Party Id Take Up Trading Firm: 5 Byte Ascii String Nullable
   index, party_id_take_up_trading_firm = bse_bseindia_eti_fbe_v1_6_14.party_id_take_up_trading_firm.dissect(buffer, index, packet, parent)
@@ -18080,8 +18055,8 @@ bse_bseindia_eti_fbe_v1_6_14.delete_order_single_request.fields = function(buffe
   -- Orig Cl Ord Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, orig_cl_ord_id = bse_bseindia_eti_fbe_v1_6_14.orig_cl_ord_id.dissect(buffer, index, packet, parent)
 
-  -- Filler 1: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_1 = bse_bseindia_eti_fbe_v1_6_14.filler_1.dissect(buffer, index, packet, parent)
+  -- Filler1: 8 Byte
+  index, filler1 = bse_bseindia_eti_fbe_v1_6_14.filler1.dissect(buffer, index, packet, parent)
 
   -- Message Tag: 4 Byte Signed Fixed Width Integer Nullable
   index, message_tag = bse_bseindia_eti_fbe_v1_6_14.message_tag.dissect(buffer, index, packet, parent)
@@ -18172,8 +18147,8 @@ bse_bseindia_eti_fbe_v1_6_14.delete_order_complex_request.fields = function(buff
   -- Security Id: 8 Byte Signed Fixed Width Integer Nullable
   index, security_id = bse_bseindia_eti_fbe_v1_6_14.security_id.dissect(buffer, index, packet, parent)
 
-  -- Filler 1: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, filler_1 = bse_bseindia_eti_fbe_v1_6_14.filler_1.dissect(buffer, index, packet, parent)
+  -- Filler1: 8 Byte
+  index, filler1 = bse_bseindia_eti_fbe_v1_6_14.filler1.dissect(buffer, index, packet, parent)
 
   -- Message Tag: 4 Byte Signed Fixed Width Integer Nullable
   index, message_tag = bse_bseindia_eti_fbe_v1_6_14.message_tag.dissect(buffer, index, packet, parent)
